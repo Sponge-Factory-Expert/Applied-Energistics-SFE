@@ -150,7 +150,7 @@ public class PatternAccessTermScreen<C extends PatternAccessTermMenu> extends AE
         this.addToLeftToolbar(
                 new SettingToggleButton<>(Settings.TERMINAL_STYLE, terminalStyle, this::toggleTerminalStyle));
 
-        showPatternProviders = new ServerSettingToggleButton(Settings.TERMINAL_SHOW_PATTERN_PROVIDERS,
+        showPatternProviders = new ServerSettingToggleButton<>(Settings.TERMINAL_SHOW_PATTERN_PROVIDERS,
                 ShowPatternProviders.VISIBLE);
 
         this.addToLeftToolbar(showPatternProviders);
@@ -168,9 +168,6 @@ public class PatternAccessTermScreen<C extends PatternAccessTermMenu> extends AE
         this.imageHeight = GUI_HEADER_HEIGHT + GUI_FOOTER_HEIGHT + this.visibleRows * ROW_HEIGHT;
 
         super.init();
-
-        // Auto focus search field
-        this.setInitialFocus(this.searchField);
 
         // numLines may have changed, recalculate scroll bar.
         this.resetScrollbar();
